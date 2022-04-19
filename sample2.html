@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+    <div id="root">
+        <div>{{first}}곱하기 {{second}}는?</div>
+        <form v-on:submit="onSubmitForm">
+            <input type="number" v-model="value">
+            <button>입력</button>
+        </form>
+        <div id='result'>{{result}}</div>
+    </div>
+
+    <script>
+        // 1. 데이터 중심으로 코딩 해라
+        // 2. 바뀌는 부분을 찾고 데이터로 만들어라
+        // 3. 돔객체를 직접 제어하면 데이터와 돔객체가 달라지기 때문에 정말 필요한 곳에서만 사용한다.
+        // 4. 데이터
+        const app = new Vue({
+            el: '#root',
+            data: {
+                first: Math.ceil(Math.random() * 9),
+                second: Math.ceil(Math.random() * 9),
+                value: '',
+                result: ''
+            },
+            methods: {
+                onSubmitForm(e){
+                    e.preventDefault();
+                    if( this.first * this.second == parseInt(this.value) ){
+                        this.result = "정답"
+                        this.value = ''
+                    } else {
+                        this.result = "땡"
+                        this.value = ''
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+</html>
