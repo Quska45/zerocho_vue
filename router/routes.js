@@ -1,17 +1,18 @@
-import Vue from 'vue';
-import VueRouter from 'vue-router';
-import lotto from '../lotto/';
-//import Rock from '../가위바위보'
+import { createWebHistory, createRouter } from 'vue-router';
+import Lotto from './Rock.vue';
 
-export default new VueRouter({
-  routes: [
-    // { 
-    //     path: 'rock-scissors-paper',
-    //     component: Rock
-    // },
+
+const routes = [
     { 
-        path: 'lotto',
-        component: lotto
+        path: '/lotto',
+        name: 'Lotto',
+        component: Lotto
     }
-  ]
-});
+];
+
+const router = createRouter({
+    history: createWebHistory(),
+    routes
+})
+
+export default  router;

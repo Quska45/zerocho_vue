@@ -1,5 +1,5 @@
 import { createApp } from 'vue';
-import Router from './Router.vue'
+import Router from './Router.vue';
+import router from './routes.js';
 
-createApp(Router).mount('#root')
-// new Vue().$mount('#root');
+createApp(Router).use(router).mount('#root')
